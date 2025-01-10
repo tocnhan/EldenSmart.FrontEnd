@@ -1,20 +1,31 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+// import TheWelcome from './components/TheWelcome.vue'
+import LoginDeltail from './views/Login/LoginDeltail.vue';
+import FooterDeltail from './components/footer/FooterDeltail.vue';
+import HeaderDeltail from './components/header/HeaderDeltail.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <a-layout>
+    <!-- header -->
+    <a-layout-header style="background: #7dbcea; color: white; text-align: center;">
+     <HeaderDeltail />
+    </a-layout-header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    <!-- main -->
+    <a-layout-content style="min-height: 280px; padding: 24px;">
+      <LoginDeltail />
+    </a-layout-content>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <!-- footer -->
+     <a-layout-footer style="text-align: center;">
+      <FooterDeltail></FooterDeltail>
+    </a-layout-footer>
+  
+  
+  </a-layout>
+  
 </template>
 
 <script>
@@ -22,30 +33,5 @@ import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
