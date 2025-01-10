@@ -1,18 +1,22 @@
 // router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue'; // Import component cho route
-import About from '../views/About.vue'; // Import thêm các route khác
 
 // Định nghĩa các route
-const routes = [{
+let routes = [{
         path: '/',
-        name: 'Home',
-        component: Home,
+        name: 'Home'
     },
     {
-        path: '/about',
-        name: 'About',
-        component: About,
+        path: '/login',
+        name: 'LoginDeltail',
+        component: () =>
+            import ('@/views/Login/LoginDeltail.vue'),
+    },
+    {
+        path: '/contact',
+        name: 'ContactDeltail',
+        component: () =>
+            import ('@/views/contact/ContactDeltail.vue'),
     },
 ];
 
