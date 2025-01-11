@@ -1,4 +1,6 @@
 <script setup>
+// import { mixinGlobal } from '@/mixins/global.js';
+
 
 // import TheWelcome from './components/TheWelcome.vue'
 import LoginDeltail from './views/Login/LoginDeltail.vue';
@@ -29,7 +31,9 @@ import HeaderDeltail from './components/header/HeaderDeltail.vue';
 </template>
 
 <script>
-  
+export default {
+    // mixins: [mixinGlobal],
+  }
 </script>
 
 <style scoped>
