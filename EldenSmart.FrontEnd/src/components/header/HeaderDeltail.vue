@@ -1,15 +1,10 @@
 <script setup>
-import HelloWorld from '../HelloWorld.vue';
+// import HelloWorld from '../HelloWorld.vue';
 import NavbarDeltail from '../navbar/NavbarDeltail.vue';
 </script>
 
 <template>
     <NavbarDeltail />
-    <h1>HEADER</h1>
-    
-      <HelloWorld msg="You did it!" />  
-    
-    <div class="logo">MyApp</div>
     
 </template>
 
