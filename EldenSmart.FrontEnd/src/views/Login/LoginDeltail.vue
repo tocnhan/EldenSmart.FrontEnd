@@ -1,5 +1,5 @@
-<script lang="ts" setup>
-
+<script setup>
+import { login } from '@/services/api'
 </script>
 <template>
   <a-row type="flex" justify="center"  style="height: 100vh;">
@@ -20,7 +20,7 @@
           </a-form-item>
 
           <a-form-item>
-            <a-button type="primary" block @click="onSubmit(form.username, form.password)">Đăng nhập</a-button>
+            <a-button type="primary" block @click="onSubmit()">Đăng nhập</a-button>
           </a-form-item>
         </a-form>
         <p>username : {{ form.username }}</p>
@@ -48,6 +48,7 @@ export default {
         ],
       },
       error: null, // Biến hiển thị lỗi
+      errorMessage : null,
       // Thông tin tài khoản cứng
       validAccount: {
         username: 'admin',
@@ -56,10 +57,10 @@ export default {
     };
   },
   methods: {
-    onSubmit(user, pass) {
+    onSubmit() {
       // Xử lý logic đăng nhập
       
-        if (user == "admin" && pass == "1" ) {
+        if (this.form.username == "admin" && this.form.password == "1" ) {
           
           alert('Đăng nhập thành công!');
           this.error = null; 
@@ -70,7 +71,17 @@ export default {
         }
       
 
-    }
+    },
+    async onSubmitLg() {
+      try {
+        const response = await login(this.form.username, this.form.password);
+        alert(response.message); // Đăng nhập thành công
+        // Lưu token hoặc chuyển hướng nếu cần
+        this.errorMessage = null;
+      } catch (error) {
+        this.errorMessage = error.message || 'Đăng nhập thất bại!';
+      }
+    },
   }
 };
 </script>
